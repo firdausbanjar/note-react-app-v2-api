@@ -1,0 +1,478 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap");
+
+:root {
+    --font-color: #26282b;
+    --bg-color: #e0e0e0;
+    --shadow-color-flat: 5px 5px 8px #5a5a5a, -5px -5px 12px #ffffff;
+    --shadow-color-pressed: inset 5px 5px 8px #5a5a5a, inset -5px -5px 12px #ffffff;
+}
+
+[app-theme="dark"] {
+    --font-color: #e0e0e0;
+    --bg-color: #26282b;
+    --shadow-color-flat: 5px 5px 8px #0f1011, -5px -5px 12px #3d4045;
+    --shadow-color-pressed: inset 5px 5px 8px #0f1011, inset -5px -5px 12px #3d4045;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background 0.3s ease-in;
+}
+
+.neumorphism-flat {
+    border-radius: 15px;
+    background: var(--bg-color);
+    box-shadow: var(--shadow-color-flat);
+}
+
+.neumorphism-pressed {
+    border-radius: 15px;
+    background: var(--bg-color);
+    box-shadow: var(--shadow-color-pressed);
+}
+
+body {
+    font-family: "IBM Plex Mono", monospace;
+    background: var(--bg-color);
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: calc(100vh - 50px);
+    width: 85%;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+}
+
+main section {
+    width: 100%;
+    height: 100%;
+}
+
+.app-title {
+    font-size: 2.8rem;
+    color: var(--font-color);
+    font-weight: 700;
+    text-align: center;
+    margin: 10px 0 30px 0;
+}
+
+.user-panel {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.user-panel button {
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.lang-btn {
+    color: var(--font-color);
+    padding: 10px;
+    font-weight: 600;
+}
+
+.logout-btn,
+.theme-btn,
+.user {
+    margin-left: 20px;
+}
+
+.user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.user-name {
+    margin-left: 10px;
+    color: var(--font-color);
+    font-weight: 700;
+    font-size: 1.5rem;
+    max-width: 6ch;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-transform: capitalize;
+}
+
+nav {
+    margin-top: 30px;
+    position: fixed;
+    bottom: 10px;
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    height: 70px;
+    margin: 0 15px;
+    list-style: none;
+    width: 35%;
+    position: relative;
+    background: var(--bg-color);
+}
+
+.home-menu,
+.archive-menu {
+    position: absolute;
+    top: 50%;
+}
+
+.home-menu {
+    left: 25%;
+    transform: translate(-50%, -50%);
+}
+
+.archive-menu {
+    right: 25%;
+    transform: translate(50%, -50%);
+}
+
+.new-menu {
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%) translateY(-50%);
+    position: absolute;
+    padding: 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    background: rgb(205, 42, 18);
+    background: linear-gradient(90deg, rgba(205, 42, 18, 1) 0%, rgba(237, 86, 13, 1) 100%);
+}
+
+.icon {
+    color: var(--font-color);
+}
+
+.search-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 10px 15px 0 15px;
+}
+
+.input-search {
+    width: 100%;
+}
+
+.search-icon {
+    font-size: 35px;
+    margin-left: 15px;
+}
+
+.page-title {
+    font-size: 2rem;
+    color: var(--font-color);
+    font-weight: 700;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.note-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding-bottom: 130px;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.note-item {
+    width: 100%;
+    height: 270px;
+    cursor: pointer;
+    padding: 20px;
+}
+
+.note-title,
+.note-date,
+.note-body {
+    color: var(--font-color);
+}
+
+.note-title {
+    font-weight: 700;
+    font-size: 1.3rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.note-date {
+    font-size: 12px;
+    font-weight: 300;
+    margin: 2px 0 20px 0;
+}
+
+.note-body {
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.empty p {
+    font-size: xx-large;
+    font-weight: 600;
+    color: var(--font-color);
+}
+
+.note-detail {
+    justify-self: center;
+    margin: 40px auto 0 auto;
+    padding-bottom: 130px;
+    width: 75%;
+}
+
+.btn-group {
+    width: 100%;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.btn {
+    color: #e0e0e0;
+    padding: 15px 25px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.delete-btn {
+    margin-left: 15px;
+}
+
+.detail-title,
+.detail-date,
+.detail-body {
+    color: var(--font-color);
+}
+
+.detail-title {
+    margin-bottom: 3px;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.detail-date {
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+.detail-body {
+    font-weight: 500;
+}
+
+.login-text,
+.login-text a,
+.register-text,
+.register-text a {
+    margin-top: 20px;
+    color: var(--font-color);
+    font-weight: 500;
+}
+
+.login-input,
+.register-input,
+.note-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.input-group label {
+    color: var(--font-color);
+    font-weight: 500;
+    font-size: large;
+}
+
+.input-title,
+.input-search,
+.input-body,
+.input-name,
+.input-email,
+.input-password {
+    color: var(--font-color);
+    font-size: 1rem;
+    margin: 10px 0 20px 0;
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    caret-color: var(--font-color);
+}
+
+.note-input,
+.input-group:nth-child(2) {
+    height: 80%;
+}
+
+.input-body {
+    height: 200px;
+}
+
+.input-body {
+    overflow-y: scroll;
+}
+
+.input-body::-webkit-scrollbar {
+    width: 5px;
+}
+
+.input-body::-webkit-scrollbar-thumb {
+    background: var(--font-color);
+    border-radius: 5px;
+}
+
+.input-btn {
+    align-self: flex-end;
+    margin-top: auto;
+    display: flex;
+}
+
+.submit-btn {
+    margin-left: 20px;
+    background: #4cd137;
+}
+
+.archive-btn {
+    background: #3867d6;
+}
+
+.cancel-btn,
+.delete-btn {
+    background-color: #ff0000;
+}
+
+.not-found-page,
+.no-notes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.not-found-page button {
+    color: var(--font-color) !important;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 1210px) {
+    .note-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    nav ul {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .app-container header {
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+
+    .theme-btn {
+        margin-left: 0;
+    }
+
+    .user-panel {
+        width: 65%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .theme-btn {
+        margin-left: 20px;
+    }
+}
+
+@media screen and (max-width: 910px) {
+    .note-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 720px) {
+    nav ul {
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .note-list {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    nav ul {
+        width: 100%;
+    }
+
+    .user-panel {
+        width: 100%;
+    }
+}
